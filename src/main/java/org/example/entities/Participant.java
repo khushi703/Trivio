@@ -11,7 +11,7 @@ import java.util.List;
 public class Participant {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue
     private Long participantId;
 
     private String name;

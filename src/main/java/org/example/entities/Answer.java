@@ -10,7 +10,7 @@ import jakarta.persistence.*;
 public class Answer {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue
     private Long answerId;
 
     private String selectedOption;
@@ -21,9 +21,9 @@ public class Answer {
     @JoinColumn(name = "participant_id")
     private Participant participant;
 
-    @ManyToOne
-    @JoinColumn(name = "question_id")
-    private Question question;
+//    @ManyToOne
+//    @JoinColumn(name = "question_id")
+//    private Question question;
 
     // Getters and Setters
 
@@ -59,11 +59,11 @@ public class Answer {
         this.participant = participant;
     }
 
-    public Question getQuestion() {
-        return question;
-    }
-
-    public void setQuestion(Question question) {
-        this.question = question;
-    }
+//    public Question getQuestion() {
+//        return question;
+//    }
+//
+//    public void setQuestion(Question question) {
+//        this.question = question;
+//    }
 }

@@ -8,7 +8,7 @@ import java.util.List;
 public class Question {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue
     private Long questionId;
 
     private String questionText;
@@ -23,8 +23,9 @@ public class Question {
     @JoinColumn(name = "quiz_id")
     private Quiz quiz;
 
-    @OneToMany(mappedBy = "question", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Answer> answers;
+    @OneToOne
+    @JoinColumn(name="fk")
+    private Answer answers;
 
     // Getters and Setters
 
@@ -76,11 +77,11 @@ public class Question {
         this.quiz = quiz;
     }
 
-    public List<Answer> getAnswers() {
+    public Answer getAnswers() {
         return answers;
     }
 
-    public void setAnswers(List<Answer> answers) {
+    public void setAnswers(Answer answers) {
         this.answers = answers;
     }
 }
